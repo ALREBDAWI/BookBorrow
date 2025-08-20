@@ -26,7 +26,7 @@ public class Librarian extends Person {
                         "  Name      : %s %s\n" +
                         "  Email     : %s\n" +
                         "  Registered: %s",
-                name, surname, email, dateOfRegistration
+                getName(), getSurname(), getEmail(), getDateOfRegistration()
         );
     }
 }

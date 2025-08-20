@@ -2,14 +2,12 @@ package Model;
 
 import java.time.LocalDate;
 
-import java.text.SimpleDateFormat;
-
 public class Person {
 
-    String name;
-    String surname;
-    String email;
-    LocalDate dateOfRegistration;
+    private String name;
+    private String surname;
+    private String email;
+    private LocalDate dateOfRegistration;
 
     //constructor
 

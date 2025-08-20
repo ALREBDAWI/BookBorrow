@@ -3,17 +3,24 @@ package Model;
 public class Book {
 
     //variables
-    String title;
-    String author;
-    int quantity;
-    int isbn;
+    private String title;
+    private String author;
+    private int quantity;
+    private long isbn;
 
     //constructor
-    public Book(String pTitle, String pAuthor, int pQuantity, int pIsbn) {
+    public Book(String pTitle, String pAuthor, int pQuantity, long pIsbn) {
         setTitle(pTitle);
         setAuthor(pAuthor);
         setQuantity(pQuantity);
         setIsbn(pIsbn);
+    }
+
+    public Book() {
+        title = "";
+        author = "";
+        quantity = 1;
+        isbn = 0;
     }
 
     //getter and setter
@@ -42,11 +49,11 @@ public class Book {
         this.quantity = pQuantity;
     }
 
-    public int getIsbn() {
+    public long getIsbn() {
         return this.isbn;
     }
 
-    public void setIsbn(int pIsbn) {
+    public void setIsbn(long pIsbn) {
         this.isbn = pIsbn;
     }
 
