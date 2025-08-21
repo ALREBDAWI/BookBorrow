@@ -65,8 +65,8 @@ public class Person {
                 "Person Details:\n" +
                         "  Name      : %s %s\n" +
                         "  Email     : %s\n" +
-                        "  Registered: %s",
-                name, surname, email, dateOfRegistration
+                        "  Registered: %s\n",
+                name, surname, email, dateOfRegistration+ "\n"
         );
     }
 

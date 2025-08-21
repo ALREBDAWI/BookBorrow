@@ -1,6 +1,9 @@
 package Controller;
 
 import Model.Book;
+import Model.BooksList;
+import Model.BorrowedBooksList;
+
 
 import java.util.Scanner;
 
@@ -15,9 +18,10 @@ public class CreateNewBook {
         System.out.println("Enter Book Quantity: ");
         int bookQuantity = Integer.parseInt(sc.nextLine());
         System.out.println("Enter Book ISBN: ");
-        int bookIsbn = Integer.parseInt(sc.nextLine());
+        long bookIsbn = Long.parseLong(sc.nextLine());
         Book book = new Book(bookTitle, bookAuthor, bookQuantity, bookIsbn);
         System.out.println(book);
+        BooksList.setBooksList(book);
         return book;
     }
 

@@ -8,13 +8,12 @@ public class BorrowedBook extends Book {
     private Person borrowerName;
 
 
-
     //constructor
-    public BorrowedBook(Person pBorrowerName,  String pTitle, LocalDate pBorrowingDate) {
+    public BorrowedBook(Person pBorrowerName, Book book, LocalDate pBorrowingDate) {
         setBorrowedBookDate(pBorrowingDate);
         setReturnedBookDate(7);
         setBorrowerName(pBorrowerName);
-        setTitle(pTitle);
+        setTitle(book.getTitle());
     }
 
     public BorrowedBook() {
@@ -52,10 +51,11 @@ public class BorrowedBook extends Book {
                 "Borrowed Book Details: \n" +
 
                         "   Title             : %s\n "+
+                        "   ISBN             : %s\n "+
                         "  Borrower          : %s\n "+
                         "  Borrowing date    : %s\n "+
-                        "  Returning date    : %s ",
-                getTitle(), borrowerName.getName(), borrowedBookDate, returnedBookDate
+                        "  Returning date    : %s\n",
+                getTitle(), getIsbn(), borrowerName.getName() +" "+borrowerName.getSurname(), borrowedBookDate, returnedBookDate+ "\n"
         );
     }
 

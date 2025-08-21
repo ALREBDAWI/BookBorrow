@@ -64,8 +64,8 @@ public class Book {
                         "   Title           : %s\n "+
                         "  Author          : %s\n "+
                         "  Quantity        : %s\n "+
-                        "  ISBN            : %s ",
-                title, author, quantity, isbn
+                        "  ISBN            : %s\n ",
+                title, author, quantity, isbn + "\n"
         );
     }
 
