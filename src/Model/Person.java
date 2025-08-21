@@ -31,7 +31,12 @@ public class Person {
     }
 
     public void setName(String pName){
-        this.name = pName;
+        String regex = "^[A-Za-z][a-z]+$";
+        if(pName.matches(regex)){
+            this.name = pName;
+        }else {
+            throw new IllegalArgumentException("Invalid Name Format");
+        }
     }
 
     public String getSurname() {
@@ -39,7 +44,12 @@ public class Person {
     }
 
     public void setSurname(String pSurname){
-        this.surname = pSurname;
+        String regex = "^[A-Za-z][a-z]+$";
+        if(pSurname.matches(regex)){
+            this.surname = pSurname;
+        }else {
+            throw new IllegalArgumentException("Invalid Surname Format");
+        }
     }
 
     public String getEmail() {
@@ -47,7 +57,12 @@ public class Person {
     }
 
     public void setEmail(String pEmail){
-        this.email = pEmail;
+        String regex = "^[A-Za-z0-9]+([._-]?[A-Za-z0-9]+)*@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
+        if(pEmail.matches(regex)){
+            this.email = pEmail;
+        }else  {
+            throw new IllegalArgumentException("Invalid Email Format");
+        }
     }
 
     public LocalDate getDateOfRegistration() {

@@ -13,8 +13,8 @@ class Demo {
 
         //adding members
         Person person1 = new Person("Ahmad", "youssef", "ahmad.youssef@gmail.com", LocalDate.of(2023, 9, 20) );
-        Person person2 = new Person("Adam", "Zidane", "lina.hassan@yahoo.com", LocalDate.of(2024, 2, 1));
-        Person person3 = new Person("Omar", "Sherif", "omar.ali@hotmail.com", LocalDate.of(2022, 11, 20));
+        Person person2 = new Person("Adam", "Zidane", "lina.Hassan@yahoo.com", LocalDate.of(2024, 2, 1));
+        Person person3 = new Person("Omar", "Sherif", "omara.Ali@hotmail.com", LocalDate.of(2022, 11, 20));
         PeopleList.setPeopleList(person1);
         PeopleList.setPeopleList(person2);
         PeopleList.setPeopleList(person3);

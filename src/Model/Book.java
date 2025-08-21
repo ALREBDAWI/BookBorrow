@@ -1,5 +1,5 @@
 package Model;
-
+import java.util.regex.*;
 public class Book {
 
     //variables
@@ -30,7 +30,12 @@ public class Book {
     }
 
     public void setTitle(String pTitle) {
-        this.title = pTitle;
+        String regex = "^[A-Za-z0-9][A-Za-z0-9\\s:;,.!?'\\-]{1,99}$";
+        if (pTitle.matches(regex)) {
+            this.title = pTitle;
+        }else{
+            throw new IllegalArgumentException("Title is invalid");
+        }
     }
 
     public String getAuthor() {
@@ -38,7 +43,12 @@ public class Book {
     }
 
     public void setAuthor(String pAuthor) {
-        this.author = pAuthor;
+        String regex = "^[A-Z][a-zA-Z.-]+(?: [A-Z][a-zA-Z.-]+)*$";
+        if(pAuthor.matches(regex)) {
+            this.author = pAuthor;
+        }else {
+            throw  new IllegalArgumentException("Invalid Author Name Format");
+        }
     }
 
     public int getQuantity() {
@@ -46,7 +56,11 @@ public class Book {
     }
 
     public void setQuantity(int pQuantity) {
-        this.quantity = pQuantity;
+        if(pQuantity >= 0) {
+            this.quantity = pQuantity;
+        }else  {
+            throw  new IllegalArgumentException("Quantity cannot be negative");
+        }
     }
 
     public long getIsbn() {
@@ -54,7 +68,12 @@ public class Book {
     }
 
     public void setIsbn(long pIsbn) {
-        this.isbn = pIsbn;
+        int isbnLength = String.valueOf(pIsbn).length();
+        if(isbnLength == 10 || isbnLength == 13) {
+            this.isbn = pIsbn;
+        }else {
+            throw  new IllegalArgumentException("ISBN must be 10 or 13 digits long");
+        }
     }
 
     @Override
