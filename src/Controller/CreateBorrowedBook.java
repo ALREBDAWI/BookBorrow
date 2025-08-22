@@ -14,12 +14,16 @@ public class CreateBorrowedBook {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Book title");
         String bookName = input.nextLine();
-        System.out.println("Enter Borrower Name");
-        String borrowerName = input.nextLine();
+        //we get full name of member
+        System.out.println("Enter Borrower First Name");
+        String borrowerFirstName = input.nextLine();
+        System.out.println("Enter Borrower Last Name");
+        String borrowerLastName = input.nextLine();
 
         Book selectedBook = null;
         Person selectedPerson = null;
 
+        //we check if the entered title exists in books list
         for (Book b : BooksList.getBooksList()) {
             if(b.getTitle().equals(bookName)){
                 selectedBook = b;
@@ -27,8 +31,9 @@ public class CreateBorrowedBook {
             }
         }
 
+        //check if the entered full name exists in members list
         for (Person p : PeopleList.getPeopleList()){
-            if(p.getName().equalsIgnoreCase(borrowerName)){
+            if(p.getName().equalsIgnoreCase(borrowerFirstName) && p.getSurname().equalsIgnoreCase(borrowerLastName)){
                 selectedPerson = p;
                 break;
             }
@@ -38,23 +43,16 @@ public class CreateBorrowedBook {
             System.out.println("Book or Person Not Found");
             return null;
         }
-
-        BorrowedBook borrowedBook = new BorrowedBook(selectedPerson,selectedBook,LocalDate.now());
-        BorrowedBooksList.addBorrowedBook(borrowedBook);
+        //condition to assure the availability of the book
         if(selectedBook.getQuantity() > 0 ){
+            BorrowedBook borrowedBook = new BorrowedBook(selectedPerson,selectedBook,LocalDate.now());
+            BorrowedBooksList.addBorrowedBook(borrowedBook);
             selectedBook.setQuantity(selectedBook.getQuantity()-1);
             System.out.println(borrowedBook);
             return borrowedBook;
-
         }else {
             System.out.println("Book is out of stock! ");
             return null;
         }
     }
-
-    public static void main(String[] args) {
-        CreateBorrowedBook.createNewBorrowedBook();
-
-    }
-
 }

@@ -13,4 +13,9 @@ public class BooksList {
     public static void setBooksList(Book book) {
         books.add(book);
     }
+
+    //remove book from list
+    public static void deleteBook(Book book){
+        books.remove(book);
+    };
 }

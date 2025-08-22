@@ -1,11 +1,12 @@
 package Controller;
 
+import Model.PeopleList;
 import Model.Person;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class CreateNewMember {
+public class CreateNewPerson {
     public static Person createNewMember(){
 
         Scanner sc = new Scanner(System.in);
@@ -17,12 +18,9 @@ public class CreateNewMember {
         String email = sc.nextLine();
         LocalDate dateOfRegistration = LocalDate.now();
         Person person =  new Person(name, surname, email, dateOfRegistration);
+        PeopleList.setPeopleList(person);
         System.out.println(person);
         return person;
-    }
-
-    public static void main(String[] args) {
-        createNewMember();
     }
 
 }

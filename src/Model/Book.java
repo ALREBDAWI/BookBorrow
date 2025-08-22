@@ -43,7 +43,7 @@ public class Book {
     }
 
     public void setAuthor(String pAuthor) {
-        String regex = "^[A-Z][a-zA-Z.-]+(?: [A-Z][a-zA-Z.-]+)*$";
+        String regex = "^[a-zA-Z][a-zA-Z.-]+(?: [A-Z][a-zA-Z.-]+)*$";
         if(pAuthor.matches(regex)) {
             this.author = pAuthor;
         }else {

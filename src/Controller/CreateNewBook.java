@@ -2,8 +2,6 @@ package Controller;
 
 import Model.Book;
 import Model.BooksList;
-import Model.BorrowedBooksList;
-
 
 import java.util.Scanner;
 
@@ -25,7 +23,4 @@ public class CreateNewBook {
         return book;
     }
 
-    public static void main(String[] args) {
-        createNewBook();
-    }
 }
