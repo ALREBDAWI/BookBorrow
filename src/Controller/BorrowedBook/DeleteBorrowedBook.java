@@ -1,4 +1,4 @@
-package Controller;
+package Controller.BorrowedBook;
 
 import Model.Book;
 import Model.BorrowedBooksList;

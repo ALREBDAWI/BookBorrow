@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Book;
 
 import Model.Book;
 import Model.BooksList;

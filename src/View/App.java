@@ -1,20 +1,26 @@
 package View;
 
-import Controller.*;
+import Controller.Book.CreateNewBook;
+import Controller.Book.DeleteBook;
+import Controller.Book.ModifyBook;
+import Controller.BorrowedBook.CreateBorrowedBook;
+import Controller.Person.CreateNewPerson;
+import Controller.Person.DeletePerson;
+import Controller.Person.ModifyPerson;
 import Model.DummyData.DataSeeder;
 import Model.PeopleList;
 import Model.*;
 
 import java.util.Scanner;
 
-class Demo {
-    public static void demo(){
+public class App {
+    public static void app(){
         DataSeeder.dummyData();
         Scanner sc = new Scanner(System.in);
         boolean on = true;
         while (on) {
-
-            System.out.println("Enter choice: 1 for add new book, 2 add borrowed book, 3 add new member, 4 list of borrowed books,5 list all books, 6 list of all members, 7 delete book, 8 delete member");
+            LibraryMenu.showMenu();  //menu to manage CRUD operations
+            System.out.println("\n choose an operation by typing its number ");
             int choice =  sc.nextInt();
             switch (choice){
                 case 0:
@@ -22,12 +28,12 @@ class Demo {
                     on = false;
                     break;
                 case 1:
-                    System.out.println("add a new book: ");
+                    System.out.println("add new book ");
                     BooksList.setBooksList(CreateNewBook.createNewBook());
                     break;
                 case 2:
-                    System.out.println("add a new borrowed book: ");
-                    CreateBorrowedBook.createNewBorrowedBook();
+                    System.out.println("add new borrowed book: ");
+                    BorrowedBooksList.addBorrowedBook(CreateBorrowedBook.createNewBorrowedBook());
                     break;
                 case 3:
                     System.out.println("add new member: ");
@@ -37,7 +43,7 @@ class Demo {
                     System.out.println("list of borrowed books: " + BorrowedBooksList.getBorrowedBooks());
                     break;
                 case 5:
-                    System.out.println("list of books: " + BooksList.getBooksList());
+                    System.out.println("list of all books: " + BooksList.getBooksList());
                     break;
                 case 6:
                     System.out.println("list of members: " + PeopleList.getPeopleList());
@@ -48,6 +54,12 @@ class Demo {
                 case 8:
                     DeletePerson.removePerson();
                     break;
+                case 9:
+                    ModifyPerson.modifyPerson();
+                    break;
+                case 10:
+                    ModifyBook.modifyBook();
+                    break;
                     default:
                         System.out.println("Invalid choice");
 
@@ -57,7 +69,4 @@ class Demo {
 
     }
 
-    public static void main(String[] args) {
-        demo();
-    }
 }

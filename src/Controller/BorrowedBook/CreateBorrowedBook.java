@@ -1,6 +1,5 @@
-package Controller;
+package Controller.BorrowedBook;
 
-import Model.*;
 import Model.PeopleList;
 import Model.BooksList;
 import Model.BorrowedBook;
@@ -25,7 +24,7 @@ public class CreateBorrowedBook {
 
         //we check if the entered title exists in books list
         for (Book b : BooksList.getBooksList()) {
-            if(b.getTitle().equals(bookName)){
+            if(b.getTitle().equalsIgnoreCase(bookName)){
                 selectedBook = b;
                 break;
             }
@@ -46,7 +45,6 @@ public class CreateBorrowedBook {
         //condition to assure the availability of the book
         if(selectedBook.getQuantity() > 0 ){
             BorrowedBook borrowedBook = new BorrowedBook(selectedPerson,selectedBook,LocalDate.now());
-            BorrowedBooksList.addBorrowedBook(borrowedBook);
             selectedBook.setQuantity(selectedBook.getQuantity()-1);
             System.out.println(borrowedBook);
             return borrowedBook;

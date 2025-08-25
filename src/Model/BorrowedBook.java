@@ -14,6 +14,7 @@ public class BorrowedBook extends Book {
         setReturnedBookDate(7);
         setBorrowerName(pBorrowerName);
         setTitle(book.getTitle());
+        setIsbn(book.getIsbn());
     }
 
     public BorrowedBook() {
@@ -48,21 +49,22 @@ public class BorrowedBook extends Book {
     @Override
     public String toString() {
         return String.format(
-                "Borrowed Book Details: \n" +
-
-                        "   Title             : %s\n "+
-                        "   ISBN             : %s\n "+
-                        "  Borrower          : %s\n "+
-                        "  Borrowing date    : %s\n "+
-                        "  Returning date    : %s\n",
-                getTitle(), getIsbn(), borrowerName.getName() +" "+borrowerName.getSurname(), borrowedBookDate, returnedBookDate+ "\n"
+                """
+            Borrowed Book Details:
+              Title           : %s
+              ISBN            : %s
+              Borrower        : %s %s
+              Borrowing Date   : %s
+              Returning Date        : %s
+            """,
+                getTitle(),
+                getIsbn(),
+                borrowerName.getName(),
+                borrowerName.getSurname(),
+                borrowedBookDate,
+                returnedBookDate
         );
     }
 
-    public static void main(String[] args) {
-        BorrowedBook b = new BorrowedBook();
-        System.out.println(b);
-
-    }
 
 }

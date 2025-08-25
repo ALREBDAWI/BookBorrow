@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Person;
 
 import Model.PeopleList;
 import Model.Person;
