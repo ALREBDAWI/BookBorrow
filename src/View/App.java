@@ -8,7 +8,7 @@ import Controller.Person.CreateNewPerson;
 import Controller.Person.DeletePerson;
 import Controller.Person.ModifyPerson;
 import Model.DummyData.DataSeeder;
-import Model.PeopleList;
+import Model.PersonsList;
 import Model.*;
 
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class App {
         boolean on = true;
         while (on) {
             LibraryMenu.showMenu();  //menu to manage CRUD operations
-            System.out.println("\n choose an operation by typing its number ");
+
             int choice =  sc.nextInt();
             switch (choice){
                 case 0:
@@ -46,7 +46,7 @@ public class App {
                     System.out.println("list of all books: " + BooksList.getBooksList());
                     break;
                 case 6:
-                    System.out.println("list of members: " + PeopleList.getPeopleList());
+                    System.out.println("list of members: " + PersonsList.getPeopleList());
                     break;
                 case 7:
                     DeleteBook.removeBook();

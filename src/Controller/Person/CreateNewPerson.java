@@ -1,6 +1,6 @@
 package Controller.Person;
 
-import Model.PeopleList;
+import Model.PersonsList;
 import Model.Person;
 
 import java.time.LocalDate;
@@ -18,7 +18,7 @@ public class CreateNewPerson {
         String email = sc.nextLine();
         LocalDate dateOfRegistration = LocalDate.now();
         Person person =  new Person(name, surname, email, dateOfRegistration);
-        PeopleList.setPeopleList(person);
+        PersonsList.setPeopleList(person);
         System.out.println(person);
         return person;
     }

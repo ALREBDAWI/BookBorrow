@@ -1,6 +1,6 @@
 package Controller.BorrowedBook;
 
-import Model.PeopleList;
+import Model.PersonsList;
 import Model.BooksList;
 import Model.BorrowedBook;
 import Model.Person;
@@ -31,7 +31,7 @@ public class CreateBorrowedBook {
         }
 
         //check if the entered full name exists in members list
-        for (Person p : PeopleList.getPeopleList()){
+        for (Person p : PersonsList.getPeopleList()){
             if(p.getName().equalsIgnoreCase(borrowerFirstName) && p.getSurname().equalsIgnoreCase(borrowerLastName)){
                 selectedPerson = p;
                 break;

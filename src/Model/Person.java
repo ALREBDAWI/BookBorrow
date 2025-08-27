@@ -19,9 +19,9 @@ public class Person {
     }
 
     public Person(){
-        setName(" ");
-        setSurname(" ");
-        setEmail(" ");
+        setName("name");
+        setSurname("surname");
+        setEmail("name@email.com");
         setDateOfRegistration(LocalDate.now());
     }
 
@@ -44,7 +44,7 @@ public class Person {
     }
 
     public void setSurname(String pSurname){
-        String regex = "^[A-Za-z][a-z]+$";
+        String regex = "^[A-Za-z][a-z]+(?: [A-Za-z][a-z]+)?$";
         if(pSurname.matches(regex)){
             this.surname = pSurname;
         }else {
@@ -53,13 +53,14 @@ public class Person {
     }
 
     public String getEmail() {
-        return this.email;
+        return this.email.trim();
     }
 
     public void setEmail(String pEmail){
+        String email = pEmail.trim();
         String regex = "^[A-Za-z0-9]+([._-]?[A-Za-z0-9]+)*@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
-        if(pEmail.matches(regex)){
-            this.email = pEmail;
+        if(email.matches(regex)){
+            this.email = email;
         }else  {
             throw new IllegalArgumentException("Invalid Email Format");
         }

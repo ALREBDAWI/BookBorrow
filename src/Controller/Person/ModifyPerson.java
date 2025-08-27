@@ -1,6 +1,6 @@
 package Controller.Person;
 
-import Model.PeopleList;
+import Model.PersonsList;
 import Model.Person;
 
 import java.util.Scanner;
@@ -13,7 +13,7 @@ public class ModifyPerson {
         System.out.println("Enter LastName");
         String lastName = sc.nextLine();
         Person personToModify = null;
-        for (Person p : PeopleList.getPeopleList()) {
+        for (Person p : PersonsList.getPeopleList()) {
             if(p.getName().equalsIgnoreCase(firstName) && p.getSurname().equalsIgnoreCase(lastName)){
                 personToModify = p;
             }

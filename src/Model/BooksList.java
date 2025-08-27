@@ -11,7 +11,11 @@ public class BooksList {
     }
     //add books to list
     public static void setBooksList(Book book) {
-        books.add(book);
+        if (book != null) {
+            books.add(book);
+        }else {
+            throw new IllegalArgumentException("Book cannot be null");
+        }
     }
 
     //remove book from list

@@ -19,7 +19,7 @@ public class DataSeeder {
                 new Person("Sophia", "Davis", "sophia.davis@gmail.com", LocalDate.of(2020, 6, 30)),
                 new Person("David", "Miller", "david.miller@gmail.com", LocalDate.of(2024, 3, 14))
         );
-        persons.forEach(PeopleList::setPeopleList);
+        persons.forEach(PersonsList::setPeopleList);
 
         // --- Books ---
         List<Book> books = List.of(

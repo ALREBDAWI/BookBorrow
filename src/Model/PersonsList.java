@@ -2,7 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
-public class PeopleList {
+public class PersonsList {
     private static ArrayList<Person> peopleList = new ArrayList<>();
 
     //getter
@@ -11,7 +11,11 @@ public class PeopleList {
     }
     // add people
     public static void setPeopleList(Person person) {
-        peopleList.add(person);
+        if (person != null && !peopleList.contains(person)) {
+            peopleList.add(person);
+        }else  {
+            throw new IllegalArgumentException("Person is null");
+        }
     }
 
     //delete member from list

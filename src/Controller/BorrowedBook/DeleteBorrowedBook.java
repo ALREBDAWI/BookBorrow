@@ -1,7 +1,9 @@
-package Controller.BorrowedBook;
+/*package Controller.BorrowedBook;
 
 import Model.Book;
+import Model.BorrowedBook;
 import Model.BorrowedBooksList;
+import Model.PersonsList;
 
 import java.util.Scanner;
 
@@ -12,12 +14,12 @@ public class DeleteBorrowedBook {
         String title = sc.nextLine();
         System.out.println("Enter Borrower name: ");
         String borrowerName = sc.nextLine();
-        Book borrowedBookToDelete = null;
+        BorrowedBook borrowedBookToDelete = null;
         for(Book b : BorrowedBooksList.getBorrowedBooks()){
-            if(b.getTitle().equalsIgnoreCase(title)){
+            if(b.getTitle().equals(title) && b.getBorrowerName().equals(borrowerName)){
                 borrowedBookToDelete = b;
             }
         }
         
     }
-}
+}*/

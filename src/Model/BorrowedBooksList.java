@@ -14,4 +14,9 @@ public class BorrowedBooksList {
     public static void addBorrowedBook(Book book) {
         borrowedBooks.add(book);
     }
+
+    //delete borrowed book
+    public static void removeBorrowedBook(Book book) {
+        borrowedBooks.remove(book);
+    }
 }
