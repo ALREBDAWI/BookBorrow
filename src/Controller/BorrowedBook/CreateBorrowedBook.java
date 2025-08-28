@@ -1,10 +1,7 @@
 package Controller.BorrowedBook;
 
-import Model.PersonsList;
-import Model.BooksList;
-import Model.BorrowedBook;
-import Model.Person;
-import Model.Book;
+import Model.*;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -46,6 +43,7 @@ public class CreateBorrowedBook {
         if(selectedBook.getQuantity() > 0 ){
             BorrowedBook borrowedBook = new BorrowedBook(selectedPerson,selectedBook,LocalDate.now());
             selectedBook.setQuantity(selectedBook.getQuantity()-1);
+            BorrowedBooksList.addBorrowedBook(borrowedBook);
             System.out.println(borrowedBook);
             return borrowedBook;
         }else {

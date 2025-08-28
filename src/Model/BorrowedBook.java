@@ -5,14 +5,14 @@ import java.time.LocalDate;
 public class BorrowedBook extends Book {
     private LocalDate borrowedBookDate;
     private LocalDate returnedBookDate;
-    private Person borrowerName;
+    private Person borrower;
 
 
     //constructor
     public BorrowedBook(Person pBorrowerName, Book book, LocalDate pBorrowingDate) {
         setBorrowedBookDate(pBorrowingDate);
         setReturnedBookDate(7);
-        setBorrowerName(pBorrowerName);
+        setBorrower(pBorrowerName);
         setTitle(book.getTitle());
         setIsbn(book.getIsbn());
     }
@@ -21,7 +21,7 @@ public class BorrowedBook extends Book {
         setTitle("Borrowed Book Title");
         borrowedBookDate = LocalDate.now();
         returnedBookDate = borrowedBookDate.plusDays(7);
-        borrowerName = new Person();
+        borrower = new Person();
     }
 
     //getter and setter
@@ -38,11 +38,11 @@ public class BorrowedBook extends Book {
     public void setReturnedBookDate(int pBorrowingDays) {
         this.returnedBookDate = borrowedBookDate.plusDays(pBorrowingDays);
     }
-    public Person getBorrowerName() {
-        return this.borrowerName;
+    public Person getBorrower() {
+        return this.borrower;
     }
-    public void setBorrowerName(Person pBorrowerName) {
-        this.borrowerName = pBorrowerName;
+    public void setBorrower(Person pBorrowerName) {
+        this.borrower = pBorrowerName;
     }
 
 
@@ -59,8 +59,8 @@ public class BorrowedBook extends Book {
             """,
                 getTitle(),
                 getIsbn(),
-                borrowerName.getName(),
-                borrowerName.getSurname(),
+                borrower.getName(),
+                borrower.getSurname(),
                 borrowedBookDate,
                 returnedBookDate
         );

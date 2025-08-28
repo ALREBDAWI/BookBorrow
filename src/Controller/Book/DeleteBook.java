@@ -22,7 +22,7 @@ public class DeleteBook {
                 BooksList.deleteBook(bookToDelete);
                 System.out.println(bookToDelete + " was successfully deleted!");
             }else {
-                System.out.println( title + "Not Found");
+                System.out.println( title + " Not Found");
             }
         }
     }

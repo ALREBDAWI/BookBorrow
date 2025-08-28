@@ -27,6 +27,7 @@ public class BooksListTest {
         Model.BooksList.deleteBook(book1);
         assertEquals(0,Model.BooksList.getBooksList().size());
     }
+
     @Test
     public void deleteNotExitedBook_whenBookIsDeleted_listIsNotEmpty(){
         Book book2 = new Book("myPaper", "memo", 120, 1234569874L);
@@ -34,14 +35,16 @@ public class BooksListTest {
         Model.BooksList.deleteBook(book2);
         assertEquals(1,Model.BooksList.getBooksList().size());
     }
+
     @Test
-    public void setBook_WhenBookIsNull_(){
+    public void setBook_WhenBookIsNull_ThrowsException(){
         Book book3 = null;
         assertThrows(IllegalArgumentException.class, ()-> {
             Model.BooksList.setBooksList(book3);
         });
         assertEquals(0, Model.BooksList.getBooksList().size());
     }
+
     @Test
     public void deleteBook_WhenBookNotExist_listIsTheSame(){
         BooksList.setBooksList(book1);

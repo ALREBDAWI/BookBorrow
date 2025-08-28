@@ -3,11 +3,13 @@ package View;
 public class LibraryMenu {
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[91m";
+    public static final String RED_BOLD = "\u001B[1;31m";
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     public static final String BLUE = "\u001B[34m";
     public static final String CYAN = "\u001B[96m";
     public static final String YELL = "\u001B[93m";
+    public static final String YELLOW_BACKGROUND = "\u001B[43m";
     public static final String BACKGROUND = "\u001B[100m";
 
     public static void showMenu() {
@@ -24,18 +26,15 @@ public class LibraryMenu {
                         " 6. List of members\n\n" + RESET +
 
                         YELLOW + "Update:" + RESET + "\n" + BACKGROUND +
-                        " 9. Modify member\n" +
-                        "10. Modify book\n\n" + RESET +
+                        " 7. Modify member\n" +
+                        " 8. Modify book\n\n" + RESET +
 
                         RED + "Delete:" + RESET + "\n" + BACKGROUND +
-                        " 7. Delete book\n" +
-                        " 8. Delete member\n" + RESET +
+                        " 9. Delete book\n" +
+                        "10. Delete borrowed book\n" +
+                        "11. Delete member\n" + RESET +
 
                 YELL + "\n choose an operation by typing its number " + RESET
         );
-    }
-
-    public static void main(String[] args) {
-        showMenu();
     }
 }

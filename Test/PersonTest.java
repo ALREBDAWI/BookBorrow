@@ -13,6 +13,7 @@ public class PersonTest {
     }
 
     // ---------- Valid cases tests -------------
+
     @Test
     void setName_whenValid_returnName(){
         person.setName("Adam");
