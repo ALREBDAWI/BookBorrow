@@ -3,20 +3,22 @@ package Model;
 import java.time.LocalDate;
 
 public class BorrowedBook extends Book {
+
     private LocalDate borrowedBookDate;
     private LocalDate returnedBookDate;
     private Person borrower;
 
 
     //constructor
-    public BorrowedBook(Person pBorrowerName, Book book, LocalDate pBorrowingDate) {
+    public BorrowedBook(Person pBorrower, Book book, LocalDate pBorrowingDate) {
         setBorrowedBookDate(pBorrowingDate);
         setReturnedBookDate(7);
-        setBorrower(pBorrowerName);
+        setBorrower(pBorrower);
         setTitle(book.getTitle());
         setIsbn(book.getIsbn());
     }
 
+    //default constructor
     public BorrowedBook() {
         setTitle("Borrowed Book Title");
         borrowedBookDate = LocalDate.now();

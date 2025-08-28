@@ -19,9 +19,9 @@ public class Person {
     }
 
     public Person(){
-        setName("name");
-        setSurname("surname");
-        setEmail("name@email.com");
+        setName("Sami");
+        setSurname("Adam");
+        setEmail("sami.adam@email.com");
         setDateOfRegistration(LocalDate.now());
     }
 

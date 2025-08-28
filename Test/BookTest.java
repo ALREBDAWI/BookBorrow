@@ -20,8 +20,8 @@ public class BookTest {
 
     @Test
     void setAuthor_whenValid_returnAuthor(){
-        book.setAuthor("ValidAuthorName");
-        assertEquals("ValidAuthorName", book.getAuthor());
+        book.setAuthor("Valid Author Name");
+        assertEquals("Valid Author Name", book.getAuthor());
     }
 
     @Test
@@ -70,6 +70,30 @@ public class BookTest {
         assertThrows(IllegalArgumentException.class, ()->{
             book.setIsbn(12345); //only five digits
         });
+    }
+
+    // -------------- test constructors -------------
+    @Test
+    void setDefaultConstructor_whenValid(){
+        assertEquals("my book", book.getTitle());
+        assertEquals("me", book.getAuthor());
+        assertEquals(1259694281600L, book.getIsbn());
+        assertEquals(2, book.getQuantity());
+    }
+    @Test
+    void setConstructor_whenValid(){
+        Book book1 = new Book("Harry potter", "J K Rowling", 10, 5551479510130L);
+        assertEquals("Harry potter", book1.getTitle());
+        assertEquals("J K Rowling", book1.getAuthor());
+        assertEquals(10, book1.getQuantity());
+        assertEquals(5551479510130L, book1.getIsbn());
+    }
+    @Test
+    void setConstructor_invalid(){
+        assertThrows(IllegalArgumentException.class,()->{
+            Book book2 = new Book("@Lolita", "70 years old guy", -200, 10025480140L);
+        });
+
     }
 
 }

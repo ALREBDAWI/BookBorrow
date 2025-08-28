@@ -1,14 +1,16 @@
 package Model;
+import View.LibraryMenu;
+
 import java.util.regex.*;
 public class Book {
 
-    //variables
+    // variables
     private String title;
     private String author;
     private int quantity;
     private long isbn;
 
-    //constructor
+    // constructor
     public Book(String pTitle, String pAuthor, int pQuantity, long pIsbn) {
         setTitle(pTitle);
         setAuthor(pAuthor);
@@ -17,13 +19,13 @@ public class Book {
     }
 
     public Book() {
-        title = "";
-        author = "";
-        quantity = 1;
-        isbn = 0;
+        title = "my book";
+        author = "me";
+        quantity = 2;
+        isbn = 1259694281600L;
     }
 
-    //getter and setter
+    //------ getters and setters ------
 
     public String getTitle() {
         return this.title;
@@ -34,7 +36,7 @@ public class Book {
         if (pTitle.matches(regex)) {
             this.title = pTitle;
         }else{
-            throw new IllegalArgumentException("Title is invalid");
+            throw new IllegalArgumentException(" Title is invalid");
         }
     }
 
@@ -43,11 +45,11 @@ public class Book {
     }
 
     public void setAuthor(String pAuthor) {
-        String regex = "^[a-zA-Z][a-zA-Z.-]+(?: [A-Z][a-zA-Z.-]+)*$";
+        String regex = "^(?:[A-Za-z]\\.?|[A-Za-z][a-z.]+)(?: (?:[A-Za-z]\\.?|[A-Za-z][a-z.]+))*$";
         if(pAuthor.matches(regex)) {
             this.author = pAuthor;
         }else {
-            throw  new IllegalArgumentException("Invalid Author Name Format");
+            throw  new IllegalArgumentException(" Invalid Author Name Format");
         }
     }
 
@@ -59,7 +61,7 @@ public class Book {
         if(pQuantity >= 0) {
             this.quantity = pQuantity;
         }else  {
-            throw  new IllegalArgumentException("Quantity cannot be negative");
+            throw  new IllegalArgumentException(" Quantity cannot be negative");
         }
     }
 
@@ -72,18 +74,18 @@ public class Book {
         if(isbnLength == 10 || isbnLength == 13) {
             this.isbn = pIsbn;
         }else {
-            throw  new IllegalArgumentException("ISBN must be 10 or 13 digits long");
+            throw  new IllegalArgumentException(" ISBN must be 10 or 13 digits long");
         }
     }
 
     @Override
     public String toString() {
         return  String.format(
-                "Book details:\n"+
-                        "   Title           : %s\n "+
-                        "  Author          : %s\n "+
-                        "  Quantity        : %s\n "+
-                        "  ISBN            : %s\n ",
+                LibraryMenu.BACKGROUND + "\n"+ LibraryMenu.RESET +
+                        "   Title      : %s\n "+
+                        "  Author     : %s\n "+
+                        "  Quantity   : %s\n "+
+                        "  ISBN       : %s\n ",
                 title, author, quantity, isbn + "\n"
         );
     }

@@ -7,15 +7,17 @@ import java.util.Scanner;
 
 public class CreateBorrowedBook {
     public static BorrowedBook createNewBorrowedBook(){
+
+        //we get the details of the book borrowing from user(librarian)
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Book title");
         String bookName = input.nextLine();
-        //we get full name of member
         System.out.println("Enter Borrower First Name");
         String borrowerFirstName = input.nextLine();
         System.out.println("Enter Borrower Last Name");
         String borrowerLastName = input.nextLine();
 
+        //variables to store selected book and person
         Book selectedBook = null;
         Person selectedPerson = null;
 
@@ -36,18 +38,25 @@ public class CreateBorrowedBook {
         }
 
         if(selectedBook == null || selectedPerson == null){
-            System.out.println("Book or Person Not Found");
+            System.out.println("Book or Person Not Found try again");
             return null;
         }
-        //condition to assure the availability of the book
+
+        //condition to assure the availability of the book in stock
         if(selectedBook.getQuantity() > 0 ){
+
+            //create new borrowed book
             BorrowedBook borrowedBook = new BorrowedBook(selectedPerson,selectedBook,LocalDate.now());
+
+            //modify quantity in stock
             selectedBook.setQuantity(selectedBook.getQuantity()-1);
+
+            //we add it to a list of borrowed books
             BorrowedBooksList.addBorrowedBook(borrowedBook);
             System.out.println(borrowedBook);
-            return borrowedBook;
+            return borrowedBook; //borrowed book object return
         }else {
-            System.out.println("Book is out of stock! ");
+            System.out.println("The book is out of stock!");
             return null;
         }
     }
